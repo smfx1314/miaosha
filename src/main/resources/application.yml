@@ -1,0 +1,30 @@
+#mybatis配置
+mybatis:
+    mapper-locations: classpath:mapping/*xml
+#tomcat端口
+server:
+    port: 8090
+spring:
+    #数据库配置
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        name: shopmiaosha
+        password: 1234
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://localhost:3306/miaosha?characterEncoding=utf-8&serverTimezone=GMT%2B8
+        username: root
+    #热部署
+    devtools:
+        remote:
+            restart:
+                enabled: true
+        restart:
+            additional-paths: shopmiaosha/src/main
+    #thymeleaf
+    thymeleaf:
+        mvc:
+            static-path-pattern: /static/**
+        prefix: classpath:/templates/
+        suffix: .html
+    thymeleafcache: false
+    thymeleafencoding: UTF-8
